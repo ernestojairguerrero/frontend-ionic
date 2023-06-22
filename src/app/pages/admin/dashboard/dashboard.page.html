@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="container">
+    <h2>Administrar Publicaciones</h2>
+
+    <!-- Formulario para agregar una publicación -->
+    <form>
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título">
+
+      <label for="contenido">Contenido:</label>
+      <textarea id="contenido" name="contenido" placeholder="Ingrese el contenido"></textarea>
+
+      <button type="submit">Agregar Publicación</button>
+    </form>
+
+    <h2>Administrar Usuarios</h2>
+
+    <!-- Formulario para agregar un usuario -->
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre">
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Ingrese el email">
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" placeholder="Ingrese la contraseña">
+
+      <button type="submit">Agregar Usuario</button>
+    </form>
+
+    <h2>Lista de Publicaciones</h2>
+
+    <!-- Tabla con la lista de publicaciones -->
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Contenido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Publicación 1</td>
+          <td>Contenido de la publicación 1</td>
+        </tr>
+        <tr>
+          <td>Publicación 2</td>
+          <td>Contenido de la publicación 2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Lista de Usuarios</h2>
+
+    <!-- Tabla con la lista de usuarios -->
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Usuario 1</td>
+          <td>usuario1@example.com</td>
+        </tr>
+        <tr>
+          <td>Usuario 2</td>
+          <td>usuario2@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</ion-content>

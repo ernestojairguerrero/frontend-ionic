@@ -1,0 +1,85 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button mode="ios" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header class="card-header">
+      <ion-avatar>
+        <img src="../../../assets/icon/favicon.png">
+      </ion-avatar>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form [formGroup]="editPostForm">
+        <div class="input-container">
+          <ion-input label="Nombre" type="text" label-placement="floating" fill="outline"
+            placeholder="Ingrese su nombre" formControlName="name" >{{user.name}}</ion-input>
+          <div *ngIf="editPostForm.get('name')?.dirty || editPostForm.get('name')?.touched" class="text-danger">
+            <div *ngIf="editPostForm.get('name')?.errors?.['required']">name is required.</div>
+            <div *ngIf="editPostForm.get('name')?.errors?.['name']">Invalid name format.</div>
+          </div>
+        </div>
+        <div class="input-container">
+          <ion-input label="Apellido" type="text" label-placement="floating" fill="outline"
+            placeholder="Ingrese su apellido" value="{{ user.last_name}}" formControlName="last_name">{{user.last_name}}</ion-input>
+          <div *ngIf="editPostForm.get('last_name')?.dirty || editPostForm.get('last_name')?.touched" class="text-danger">
+            <div *ngIf="editPostForm.get('last_name')?.errors?.['required']">last_name is required.</div>
+            <div *ngIf="editPostForm.get('last_name')?.errors?.['last_name']">Invalid last_name format.</div>
+          </div>
+        </div>
+        <div class="input-container">
+          <ion-input label="Email" type="email" label-placement="floating" fill="outline"
+            placeholder="Ingrese su correo" value="{{ user.email}}" formControlName="email">{{user.email}}</ion-input>
+          <div *ngIf="editPostForm.get('email')?.dirty || editPostForm.get('email')?.touched" class="text-danger">
+            <div *ngIf="editPostForm.get('email')?.errors?.['required']">email is required.</div>
+            <div *ngIf="editPostForm.get('email')?.errors?.['email']">Invalid email format.</div>
+          </div>
+        </div>
+        <div class="button-container">
+          <ng-container *ngIf="editPostForm.valid; else noValid">
+            <ion-button expand="full" mode="ios" shape="round" color="primary"
+              (click)="updatePost()">Confirmar</ion-button>
+          </ng-container>
+
+          <ng-template #noValid>
+            <ion-button expand="full" mode="ios" shape="round" color="primary"
+              (click)="validateForm()">Confirmar</ion-button>
+          </ng-template>
+
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+
+  <h1>Mis posts</h1>
+
+  <!-- <app-posts></app-posts> -->
+
+  <ion-card *ngFor="let p of posts">
+    <ion-card-header>
+      <ion-card-title>{{ p.name }}</ion-card-title>
+      <p>{{ p.date }}</p>
+    </ion-card-header>
+    <ion-card-content>
+      {{ p.description }}
+    </ion-card-content>
+    <ion-button fill="clear" (click)="deletePostId(p.id)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+</ion-content>

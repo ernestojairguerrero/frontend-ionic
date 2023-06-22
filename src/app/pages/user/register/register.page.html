@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <section class="section-1">
+    <div class="logo">
+      <img src="../../../assets/icon/favicon.png" alt="" srcset="">
+    </div>
+
+    <form>
+      <h1>Registrarse</h1>
+      <div class="input-container">
+        <ion-input label="Nombre" type="email" label-placement="floating" fill="outline" placeholder="Ingrese su nombre"></ion-input>
+      </div>
+      <div class="input-container">
+        <ion-input label="Apellido" type="email" label-placement="floating" fill="outline" placeholder="Ingrese su apellido"></ion-input>
+      </div>
+      <div class="input-container">
+        <ion-input label="Email" type="email" label-placement="floating" fill="outline" placeholder="Ingrese su correo"></ion-input>
+      </div>
+      <div class="input-container">
+        <ion-input label="Contraseña" type="password" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña"></ion-input>
+      </div>
+
+      <div class="button-container">
+        <ion-button expand="full" mode="ios"  shape="round" (click)="register()">
+          Registrase
+          <ion-icon slot="end" name="person-add-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+    </form>
+  </section>
+</ion-content>
